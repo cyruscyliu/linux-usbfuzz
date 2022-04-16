@@ -1,2 +1,4 @@
 # SPDX-License-Identifier: ISC
 obj-$(CONFIG_AR5523)   := ar5523.o
+
+KCOV_INSTRUMENT := y

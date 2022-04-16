@@ -38,4 +38,5 @@ obj-$(CONFIG_JOYSTICK_TWIDJOY)		+= twidjoy.o
 obj-$(CONFIG_JOYSTICK_WARRIOR)		+= warrior.o
 obj-$(CONFIG_JOYSTICK_WALKERA0701)	+= walkera0701.o
 obj-$(CONFIG_JOYSTICK_XPAD)		+= xpad.o
+KCOV_INSTRUMENT_xpad.o := y
 obj-$(CONFIG_JOYSTICK_ZHENHUA)		+= zhenhua.o

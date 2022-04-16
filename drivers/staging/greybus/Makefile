@@ -71,3 +71,5 @@ obj-$(CONFIG_GREYBUS_USB)		+= gb-usb.o
 gb-arche-y	:= arche-platform.o arche-apb-ctrl.o
 
 obj-$(CONFIG_GREYBUS_ARCHE)	+= gb-arche.o
+
+KCOV_INSTRUMENT := y

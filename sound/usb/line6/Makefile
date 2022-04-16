@@ -17,3 +17,4 @@ obj-$(CONFIG_SND_USB_POD)	+= snd-usb-pod.o
 obj-$(CONFIG_SND_USB_PODHD)	+= snd-usb-podhd.o
 obj-$(CONFIG_SND_USB_TONEPORT)	+= snd-usb-toneport.o
 obj-$(CONFIG_SND_USB_VARIAX)	+= snd-usb-variax.o
+KCOV_INSTRUMENT := y

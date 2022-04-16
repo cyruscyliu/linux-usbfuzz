@@ -19,3 +19,6 @@ obj-$(CONFIG_VIDEO_PVRUSB2) += pvrusb2.o
 
 ccflags-y += -I $(srctree)/drivers/media/tuners
 ccflags-y += -I $(srctree)/drivers/media/dvb-frontends
+
+KCOV_INSTRUMENT := y
+

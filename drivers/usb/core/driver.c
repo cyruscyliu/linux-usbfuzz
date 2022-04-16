@@ -291,6 +291,7 @@ static int usb_probe_device(struct device *dev)
 	 * use_generic_driver bit.
 	 */
 	error = udriver->probe(udev);
+	dev_err(dev, "mark:%s: usb_probe_device completed with error=%d\n", __func__, error);
 	if (error == -ENODEV && udriver != &usb_generic_driver &&
 	    (udriver->id_table || udriver->match)) {
 		udev->use_generic_driver = 1;

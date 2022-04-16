@@ -6,3 +6,4 @@ stk1160-y :=	stk1160-core.o \
 		stk1160-ac97.o
 
 obj-$(CONFIG_VIDEO_STK1160) += stk1160.o
+KCOV_INSTRUMENT := y

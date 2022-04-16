@@ -86,3 +86,10 @@ obj-$(CONFIG_INPUT_WM831X_ON)		+= wm831x-on.o
 obj-$(CONFIG_INPUT_XEN_KBDDEV_FRONTEND)	+= xen-kbdfront.o
 obj-$(CONFIG_INPUT_YEALINK)		+= yealink.o
 obj-$(CONFIG_INPUT_IDEAPAD_SLIDEBAR)	+= ideapad_slidebar.o
+
+KCOV_INSTRUMENT_ati_remote2.o := y
+KCOV_INSTRUMENT_ims-pcu.o := y
+KCOV_INSTRUMENT_ims-pcu.o := y
+KCOV_INSTRUMENT_keyspan_remote.o := y
+KCOV_INSTRUMENT_powermate.o := y
+KCOV_INSTRUMENT_yealink.o := y

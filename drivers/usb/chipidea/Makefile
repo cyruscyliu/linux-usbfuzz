@@ -16,3 +16,4 @@ obj-$(CONFIG_USB_CHIPIDEA_MSM)		+= ci_hdrc_msm.o
 obj-$(CONFIG_USB_CHIPIDEA_PCI)		+= ci_hdrc_pci.o
 obj-$(CONFIG_USB_CHIPIDEA_IMX)		+= ci_hdrc_imx.o usbmisc_imx.o
 obj-$(CONFIG_USB_CHIPIDEA_TEGRA)	+= ci_hdrc_tegra.o
+KCOV_INSTRUMENT := y

@@ -10,3 +10,6 @@ obj-$(CONFIG_TABLET_USB_HANWANG) += hanwang.o
 obj-$(CONFIG_TABLET_USB_KBTAB)	+= kbtab.o
 obj-$(CONFIG_TABLET_USB_PEGASUS) += pegasus_notetaker.o
 obj-$(CONFIG_TABLET_SERIAL_WACOM4) += wacom_serial4.o
+
+KCOV_INSTRUMENT := y
+

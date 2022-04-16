@@ -2,3 +2,5 @@
 obj-$(CONFIG_MOST_VIDEO) += most_video.o
 
 most_video-objs := video.o
+
+KCOV_INSTRUMENT := y

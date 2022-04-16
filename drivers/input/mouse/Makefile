@@ -6,9 +6,16 @@
 # Each configuration option enables a list of files.
 
 obj-$(CONFIG_MOUSE_AMIGA)		+= amimouse.o
+
 obj-$(CONFIG_MOUSE_APPLETOUCH)		+= appletouch.o
+KCOV_INSTRUMENT_appletouch.o := y
+
+
 obj-$(CONFIG_MOUSE_ATARI)		+= atarimouse.o
+
 obj-$(CONFIG_MOUSE_BCM5974)		+= bcm5974.o
+KCOV_INSTRUMENT_bcm5974.o := y
+
 obj-$(CONFIG_MOUSE_CYAPA)		+= cyapatp.o
 obj-$(CONFIG_MOUSE_ELAN_I2C)		+= elan_i2c.o
 obj-$(CONFIG_MOUSE_GPIO)		+= gpio_mouse.o
@@ -22,7 +29,12 @@ obj-$(CONFIG_MOUSE_PXA930_TRKBALL)	+= pxa930_trkball.o
 obj-$(CONFIG_MOUSE_RISCPC)		+= rpcmouse.o
 obj-$(CONFIG_MOUSE_SERIAL)		+= sermouse.o
 obj-$(CONFIG_MOUSE_SYNAPTICS_I2C)	+= synaptics_i2c.o
+
 obj-$(CONFIG_MOUSE_SYNAPTICS_USB)	+= synaptics_usb.o
+
+KCOV_INSTRUMENT_synaptics_usb.o := y
+
+
 obj-$(CONFIG_MOUSE_VSXXXAA)		+= vsxxxaa.o
 
 cyapatp-objs := cyapa.o cyapa_gen3.o cyapa_gen5.o cyapa_gen6.o

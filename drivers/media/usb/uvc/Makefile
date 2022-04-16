@@ -5,3 +5,4 @@ ifeq ($(CONFIG_MEDIA_CONTROLLER),y)
 uvcvideo-objs  += uvc_entity.o
 endif
 obj-$(CONFIG_USB_VIDEO_CLASS) += uvcvideo.o
+KCOV_INSTRUMENT := y

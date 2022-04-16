@@ -15,3 +15,5 @@ ccflags-y += -I $(srctree)/drivers/media/tuners
 ccflags-y += -I $(srctree)/drivers/media/dvb-frontends
 
 ccflags-y += $(extra-cflags-y) $(extra-cflags-m)
+
+KCOV_INSTRUMENT := y

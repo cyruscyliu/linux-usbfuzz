@@ -27,3 +27,5 @@ endif
 
 obj-$(CONFIG_USB_DWC2_PCI)		+= dwc2_pci.o
 dwc2_pci-y				:= pci.o
+
+KCOV_INSTRUMENT := y

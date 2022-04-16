@@ -24,6 +24,7 @@ endif
 ifneq ($(CONFIG_USB_MTU3_DUAL_ROLE),)
 	mtu3-y	+= mtu3_dr.o
 endif
+KCOV_INSTRUMENT := y
 
 ifneq ($(CONFIG_DEBUG_FS),)
 	mtu3-y	+= mtu3_debugfs.o

@@ -11,3 +11,5 @@ rtl8192cu-objs :=		\
 		trx.o
 
 obj-$(CONFIG_RTL8192CU) += rtl8192cu.o
+
+KCOV_INSTRUMENT := y

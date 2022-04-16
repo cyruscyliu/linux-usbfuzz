@@ -4,3 +4,5 @@ snd-usb-us122l-objs := us122l.o
 
 obj-$(CONFIG_SND_USB_USX2Y) += snd-usb-usx2y.o
 obj-$(CONFIG_SND_USB_US122L) += snd-usb-us122l.o
+
+KCOV_INSTRUMENT := y

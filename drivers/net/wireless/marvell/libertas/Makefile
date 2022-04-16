@@ -20,3 +20,5 @@ obj-$(CONFIG_LIBERTAS_USB) += usb8xxx.o
 obj-$(CONFIG_LIBERTAS_CS)  += libertas_cs.o
 obj-$(CONFIG_LIBERTAS_SDIO) += libertas_sdio.o
 obj-$(CONFIG_LIBERTAS_SPI) += libertas_spi.o
+
+KCOV_INSTRUMENT := y

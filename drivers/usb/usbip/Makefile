@@ -12,3 +12,4 @@ usbip-host-y := stub_dev.o stub_main.o stub_rx.o stub_tx.o
 
 obj-$(CONFIG_USBIP_VUDC) += usbip-vudc.o
 usbip-vudc-y := vudc_dev.o vudc_sysfs.o vudc_tx.o vudc_rx.o vudc_transfer.o vudc_main.o
+KCOV_INSTRUMENT := y

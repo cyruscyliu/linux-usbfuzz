@@ -21,6 +21,7 @@
 #include <linux/debugfs.h>
 #include <linux/uaccess.h>
 #include <linux/kcov.h>
+#include <linux/hash.h>
 #include <linux/refcount.h>
 #include <linux/log2.h>
 #include <asm/setup.h>
@@ -185,6 +186,10 @@ static notrace unsigned long canonicalize_ip(unsigned long ip)
 	return ip;
 }
 
+
+extern unsigned char *ivshmem_bar2_map_base(void);
+DEFINE_PER_CPU(unsigned long, prev_loc) = 0;
+
 /*
  * Entry point from instrumented code.
  * This is called once per basic-block/edge.
@@ -192,20 +197,50 @@ static notrace unsigned long canonicalize_ip(unsigned long ip)
 void notrace __sanitizer_cov_trace_pc(void)
 {
 	struct task_struct *t;
-	unsigned long *area;
+	/* unsigned long *area; */
 	unsigned long ip = canonicalize_ip(_RET_IP_);
-	unsigned long pos;
+	unsigned long prev;
+	unsigned long hash;
+	int pos;
+	unsigned char *bitmap;
 
-	t = current;
-	if (!check_kcov_mode(KCOV_MODE_TRACE_PC, t))
+	bitmap = ivshmem_bar2_map_base();
+
+	if (!bitmap)
 		return;
 
-	area = t->kcov_area;
+
+	// printk("%s B called\n", __func__);
+	
+	t = current;
+	/* if (!check_kcov_mode(KCOV_MODE_TRACE_PC, t)) */
+	/* 	return; */
+
+	// area = t->kcov_area;
 	/* The first 64-bit word is the number of subsequent PCs. */
-	pos = READ_ONCE(area[0]) + 1;
-	if (likely(pos < t->kcov_size)) {
-		area[pos] = ip;
-		WRITE_ONCE(area[0], pos);
+	/* pos = READ_ONCE(area[0]) + 1; */
+	/* if (likely(pos < t->kcov_size)) { */
+	/* 	area[pos] = ip; */
+	/* 	WRITE_ONCE(area[0], pos); */
+	/* } */
+
+	
+	if (!in_task()) {
+		prev = this_cpu_read(prev_loc);
+	} else {
+		prev = t->prev_loc;
+	}
+	
+
+	hash = hash_long(ip, BITS_PER_LONG);
+	pos  = (prev ^ hash) & 0xFFFF;
+
+	bitmap[pos] ++;
+
+	if (!in_task()) {
+		this_cpu_write(prev_loc, hash);
+	} else {
+		t->prev_loc = hash;
 	}
 }
 EXPORT_SYMBOL(__sanitizer_cov_trace_pc);
@@ -354,6 +389,7 @@ static void kcov_task_reset(struct task_struct *t)
 	kcov_stop(t);
 	t->kcov_sequence = 0;
 	t->kcov_handle = 0;
+	t->prev_loc = 0;
 }
 
 void kcov_task_init(struct task_struct *t)

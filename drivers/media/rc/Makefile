@@ -55,3 +55,5 @@ obj-$(CONFIG_RC_ATI_REMOTE) += ati_remote.o
 obj-$(CONFIG_RC_LOOPBACK) += rc-loopback.o
 obj-$(CONFIG_RC_ST) += st_rc.o
 obj-$(CONFIG_RC_XBOX_DVD) += xbox_remote.o
+
+KCOV_INSTRUMENT := y

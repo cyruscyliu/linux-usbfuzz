@@ -12,3 +12,5 @@ obj-$(CONFIG_VIDEO_TM6000_DVB) += tm6000-dvb.o
 
 ccflags-y += -I $(srctree)/drivers/media/tuners
 ccflags-y += -I $(srctree)/drivers/media/dvb-frontends
+
+KCOV_INSTRUMENT := y

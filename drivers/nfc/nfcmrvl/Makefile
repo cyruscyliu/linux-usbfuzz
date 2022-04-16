@@ -17,3 +17,5 @@ obj-$(CONFIG_NFC_MRVL_I2C) += nfcmrvl_i2c.o
 
 nfcmrvl_spi-y += spi.o
 obj-$(CONFIG_NFC_MRVL_SPI) += nfcmrvl_spi.o
+
+KCOV_INSTRUMENT := y

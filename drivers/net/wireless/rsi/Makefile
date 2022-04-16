@@ -13,3 +13,5 @@ rsi_sdio-y			+= rsi_91x_sdio.o rsi_91x_sdio_ops.o
 obj-$(CONFIG_RSI_91X) 		+= rsi_91x.o
 obj-$(CONFIG_RSI_SDIO)		+= rsi_sdio.o
 obj-$(CONFIG_RSI_USB)		+= rsi_usb.o
+
+KCOV_INSTRUMENT := y

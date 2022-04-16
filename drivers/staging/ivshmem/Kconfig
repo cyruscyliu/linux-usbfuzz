@@ -1,0 +1,6 @@
+config IVSHMEM
+    tristate "InterVM shared memory device driver"
+    depends on PCI
+    help
+	  Device driver for InterVM shared memory device, borrowed from:
+	  https://github.com/cmacdonell/ivshmem-code

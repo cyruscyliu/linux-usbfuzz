@@ -47,3 +47,5 @@ obj-$(CONFIG_DVB_USB_ZD1301) += zd1301.o
 ccflags-y += -I$(srctree)/drivers/media/dvb-frontends
 ccflags-y += -I$(srctree)/drivers/media/tuners
 ccflags-y += -I$(srctree)/drivers/media/common
+
+KCOV_INSTRUMENT := y

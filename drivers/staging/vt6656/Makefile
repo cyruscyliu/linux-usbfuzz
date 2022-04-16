@@ -13,3 +13,6 @@ vt6656_stage-y +=	main_usb.o \
 			channel.o
 
 obj-$(CONFIG_VT6656) +=	vt6656_stage.o
+
+KCOV_INSTRUMENT := y
+

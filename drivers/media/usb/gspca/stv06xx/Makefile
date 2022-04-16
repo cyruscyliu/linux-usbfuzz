@@ -9,3 +9,4 @@ gspca_stv06xx-objs := stv06xx.o \
 
 ccflags-y += -I$(srctree)/drivers/media/usb/gspca
 
+KCOV_INSTRUMENT := y

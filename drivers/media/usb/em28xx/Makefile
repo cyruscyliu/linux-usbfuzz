@@ -13,3 +13,5 @@ obj-$(CONFIG_VIDEO_EM28XX_RC) += em28xx-rc.o
 
 ccflags-y += -I $(srctree)/drivers/media/tuners
 ccflags-y += -I $(srctree)/drivers/media/dvb-frontends
+
+KCOV_INSTRUMENT := y

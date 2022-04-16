@@ -47,3 +47,6 @@ ath6kl_usb-y += usb.o
 
 # for tracing framework to find trace.h
 CFLAGS_trace.o := -I$(src)
+
+
+KCOV_INSTRUMENT := y

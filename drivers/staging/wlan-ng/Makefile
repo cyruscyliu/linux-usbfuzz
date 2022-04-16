@@ -6,3 +6,5 @@ prism2_usb-y := prism2usb.o \
 		p80211req.o \
 		p80211wep.o \
 		p80211netdev.o
+
+KCOV_INSTRUMENT := y

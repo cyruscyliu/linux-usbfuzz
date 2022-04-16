@@ -11,3 +11,5 @@ obj-$(CONFIG_USB_HID)		+= usbhid.o
 obj-$(CONFIG_USB_KBD)		+= usbkbd.o
 obj-$(CONFIG_USB_MOUSE)		+= usbmouse.o
 
+KCOV_INSTRUMENT := y
+
