@@ -335,7 +335,15 @@ SYM_CODE_END(ret_from_fork)
 		movq	$-1, ORIG_RAX(%rsp)	/* no syscall to restart */
 	.endif
 
+    // save prev on the stack
+    pushq   PER_CPU_VAR(prev_loc)
+    // put 0 to it
+    movq    $0x0,PER_CPU_VAR(prev_loc)
+
 	call	\cfunc
+
+    // restore the prev_loc variable
+    popq    PER_CPU_VAR(prev_loc)
 
 	jmp	error_return
 .endm
